@@ -1,0 +1,26 @@
+# Ignore Docker volumes
+drupal-data
+mariadb-data
+
+# Ignore sensitive files
+sites/default/settings.php
+sites/*/files
+
+# Ignore Drupal cache, temporary and generated files
+sites/*/css
+sites/*/js
+sites/*/php
+sites/*/services.yml
+sites/*/settings.local.php
+sites/*/styles
+sites/*/translations
+
+# Ignore Drupal's default private files directory
+sites/*/private
+
+# Ignore IDE and editor files
+.idea
+*.swp
+*.swo
+*.bak
+*~

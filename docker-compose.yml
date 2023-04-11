@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  drupal:
+    image: drupal:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./sites/default:/var/www/html/sites/default
+      - drupal-data:/var/www/html/modules
+      - drupal-data:/var/www/html/profiles
+      - drupal-data:/var/www/html/themes
+      - drupal-data:/var/www/html/sites
+    depends_on:
+      - mariadb
+
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal
+    volumes:
+      - mariadb-data:/var/lib/mysql
+
+volumes:
+  drupal-data:
+  mariadb-data:
